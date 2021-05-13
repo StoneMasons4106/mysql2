@@ -14,8 +14,8 @@ connection = pymysql.connect(host='localhost',
 
 try:
     #Run a query
-    with connection.cursor() as cursor:
-        sql= "SELECT * FROM Artist;"
+    with connection.cursor(pymysql.cursors.DictCursor) as cursor:
+        sql = "SELECT * FROM Friends;"
         cursor.execute(sql)
         result = cursor.fetchall()
         print(result)
